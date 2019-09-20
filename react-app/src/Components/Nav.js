@@ -1,14 +1,17 @@
-import React from 'react';
+// import React from 'react';
+import React, { Component } from 'react';
 import {NavLink} from 'react-router-dom';
 
-const Nav = props => (
+export default class Nav extends Component {
+render() {
+   return(
    <nav className="main-nav">
       <ul>
-         <li><NavLink exact to='/cats'>Cats</NavLink></li>
-         <li><NavLink to='/dogs'>Dogs</NavLink></li>
-         <li><NavLink to='/computers'>Computers</NavLink></li>
+         <li><NavLink exact to='/mountains' onClick={() => this.props.onClick('mountains')}>Mountains</NavLink></li>
+         <li><NavLink exact to='/dogs' onClick={() => this.props.onClick('dogs')} >Dogs</NavLink></li>
+         <li><NavLink to='/sunsets' onClick={() => this.props.onClick('sunsets')}>Sunsets</NavLink></li>
       </ul>
    </nav>
-);
-
-export default Nav;
+   );
+   }
+}

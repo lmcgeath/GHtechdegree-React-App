@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {
    BrowserRouter,
-   Route
+   // Route
 } from 'react-router-dom';
 import axios from 'axios';
 import Search from './Components/Search';
@@ -9,7 +9,7 @@ import Search from './Components/Search';
 import Nav from './Components/Nav';
 import PhotoList from './Components/PhotoList';
 // import logo from './logo.svg';
-import './App.css';
+import './css/index.css';
 import apiKey from './config.js';
 
 export default class App extends Component {
@@ -26,7 +26,7 @@ export default class App extends Component {
      this.performSearch();
    }
    
-   performSearch = (query = 'cats') => {
+   performSearch = (query = 'mountains') => {
      axios.get(`https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&tags=${query}&per_page=24&sort=relevance&format=json&nojsoncallback=1`
      )
        .then(res => {
@@ -41,16 +41,15 @@ export default class App extends Component {
    }
   
    render() { 
-     console.log(this.state.imgs);
      return (
       <BrowserRouter>
        <div>
          <div className="container">
-             <Search onSearch={this.performSearch} /> 
-             <Nav /> 
+            <Search onSearch={this.performSearch} /> 
+            <Nav onClick={this.performSearch} /> 
            </div>   
          </div>    
-         <div className="main-content">
+         <div className="photo-container">
            {
              (this.state.loading)
               ? <p>Loading...</p>
