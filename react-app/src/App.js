@@ -1,7 +1,12 @@
 import React, {Component} from 'react';
+import {
+   BrowserRouter,
+   Route
+} from 'react-router-dom';
 import axios from 'axios';
 import Search from './Components/Search';
-import Photo from './Components/Photo';
+// import NotFound from './Components/NotFound';
+import Nav from './Components/Nav';
 import PhotoList from './Components/PhotoList';
 // import logo from './logo.svg';
 import './App.css';
@@ -34,15 +39,15 @@ export default class App extends Component {
          console.log('Error fetching and parsing data', error);
        });    
    }
-   
+  
    render() { 
      console.log(this.state.imgs);
      return (
+      <BrowserRouter>
        <div>
-         <div className="main-header">
-           <div className="inner">
-             <h1 className="main-title">Gallery App</h1>
-             <Search onSearch={this.performSearch} />  
+         <div className="container">
+             <Search onSearch={this.performSearch} /> 
+             <Nav /> 
            </div>   
          </div>    
          <div className="main-content">
@@ -52,7 +57,7 @@ export default class App extends Component {
               : <PhotoList data={this.state.imgs} />
            }          
          </div>
-       </div>
+      </BrowserRouter>
      );
    }
  }

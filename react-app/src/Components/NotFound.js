@@ -1,10 +1,14 @@
 import React from 'react';
 
 const NotFound = props => (
-   <li className='not-found'>
-     {/* <i className="material-icons icon-gif">sentiment_very_dissatisfied</i> */}
-     <h2>Sorry, no images match your search.</h2>
-   </li>
+<div>
+   <ul>
+      <li className="not-found">
+         <h3>No Results Found</h3>
+         <p>Your search did not return any results. Please try again.</p>
+      </li>
+   </ul>
+</div>
  );
 
 export default NotFound;
