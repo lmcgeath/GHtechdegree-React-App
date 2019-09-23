@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
-//Brough in from practice project 'SearchForm'
+
 export default class Search extends Component {
   
   state = {
     searchText: ''
   }
-  
+  //Sets the searchText state to the text the user types into the search box
   onSearchChange = event => {
     this.setState({ searchText: event.target.value });
   }
-  
+  //Sends the user input to the url as the query prop to fetch new data
   handleSubmit = event => {
     event.preventDefault();
     this.props.onSearch(this.query.value);
