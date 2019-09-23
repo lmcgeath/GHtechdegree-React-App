@@ -1,14 +1,14 @@
 import React, {Component} from 'react';
 import {
    BrowserRouter,
-   // Route
+   Route,
+   Switch
 } from 'react-router-dom';
 import axios from 'axios';
 import Search from './Components/Search';
-// import NotFound from './Components/NotFound';
+import pageNotFound from './Components/pageNotFound';
 import Nav from './Components/Nav';
 import PhotoList from './Components/PhotoList';
-// import logo from './logo.svg';
 import './css/index.css';
 import apiKey from './config.js';
 
@@ -42,19 +42,27 @@ export default class App extends Component {
   
    render() { 
      return (
-      <BrowserRouter>
+   <BrowserRouter>
+      <Switch>
+         <Route exact path="/" />
+         <Route path="/dogs" />
+         <Route path="/mountains" />
+         <Route path="/sunsets" />
+         <Route component={pageNotFound} />
+      </Switch>
+
        <div>
          <div className="container">
             <Search onSearch={this.performSearch} /> 
-            <Nav onClick={this.performSearch} /> 
-           </div>   
-         </div>    
+            <Nav onClick={this.performSearch} />
+         </div>  
+      </div>  
          <div className="photo-container">
            {
              (this.state.loading)
               ? <p>Loading...</p>
               : <PhotoList data={this.state.imgs} />
-           }          
+           }                 
          </div>
       </BrowserRouter>
      );
