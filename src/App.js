@@ -53,7 +53,7 @@ export default class App extends Component {
                <Route path="/dogs" />
                <Route path="/mountains" />
                <Route path="/sunsets" />
-               <Route component={pageNotFound} />
+               {/* <Route component={pageNotFound} /> */}
             </Switch> 
             <Nav onClick={this.performSearch} />
            
