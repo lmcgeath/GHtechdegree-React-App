@@ -50,11 +50,10 @@ export default class App extends Component {
             {/* Uses Switch to render the pageNotFound component if the url cannot be matched */}
             <Switch>
                <Route exact path="/"/>
-               <Route path="/GHtechdegree-React-App/"/>
                <Route path="/dogs" />
                <Route path="/mountains" />
                <Route path="/sunsets" />
-               <Route component={pageNotFound} />
+               {/* <Route component={pageNotFound} /> */}
             </Switch> 
             <Nav onClick={this.performSearch} />
            
